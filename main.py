@@ -3,22 +3,23 @@ from time import sleep
 import requests
 import random
 import string
+from colorama import Fore
 
 
 os.system("cls")
 
-amount = int(input("How much codes will be generated:"))
-print ("Classic Nitro is 16chars and Boost Nitro is 24chars")
-nitro = input("Boost codes or Classic codes (boost or classic):")
+amount = int(input(f"\n{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.LIGHTBLACK_EX}How much codes will be generated: {Fore.WHITE}"))
+print(f"\n{Fore.WHITE}[ {Fore.YELLOW}? {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Classic Nitro is 16chars and Boost Nitro is 24chars")
+nitro = input(f"{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Boost codes or Classic codes {Fore.WHITE}(boost or classic){Fore.LIGHTBLACK_EX}: {Fore.WHITE}")
 
 if "boost" in nitro or "classic" in nitro:
     pass
 else:
-    print("Answer must be boost or classic")
+    print(f"{Fore.WHITE}[ {Fore.RED}! {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Answer must be {Fore.WHITE}boost {Fore.LIGHTBLACK_EX}or {Fore.WHITE}classic")
     exit()
 
 
-checker = input(f"Enable Checker(yes or no):")
+checker = input(f"{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Enable Checker {Fore.WHITE}(yes or no){Fore.LIGHTBLACK_EX}: {Fore.WHITE}")
 
 def scrape():
     scraped = 0
@@ -34,25 +35,25 @@ def scrape():
         scraped = scraped + 1 
         f.write((p)+"\n")
     f.close()
-    print("Scraped proxies.")
+    print(f"{Fore.WHITE}[ {Fore.YELLOW}? {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Scraped {Fore.WHITE}{scraped} {Fore.LIGHTBLACK_EX}proxies.")
 
 if checker == "yes":
-    scrapep = input("Auto proxy scrape (yes or no):")
-    print("If no, every check will be on random proxy.")
-    mult = input("Multiple checks for proxy (yes or no):")
+    scrapep = input(f"{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Auto proxy scrape {Fore.WHITE}(yes or no){Fore.LIGHTBLACK_EX}: {Fore.WHITE}")
+    print(f"\n{Fore.WHITE}[ {Fore.YELLOW}? {Fore.WHITE}] {Fore.LIGHTBLACK_EX}If no, every check will be on random proxy.")
+    mult = input(f"{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Multiple checks for proxy {Fore.WHITE}(yes or no){Fore.LIGHTBLACK_EX}: {Fore.WHITE}")
     if scrapep == "yes":
         scrape()
 else:
-    print(f"If true, before code will be discord.gift/")
-    prefix = input("Prefix before codes (yes or no)")
+    print(f"\n{Fore.WHITE}[ {Fore.YELLOW}? {Fore.WHITE}] {Fore.LIGHTBLACK_EX}If true, before code will be {Fore.WHITE}discord.gift/")
+    prefix = input(f"{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Prefix before codes {Fore.WHITE}(yes or no){Fore.LIGHTBLACK_EX}: {Fore.WHITE}")
     if "yes" in prefix or "no" in prefix:
         pass
     else:
-        print("Answer must be yes or no")
+        print(f"{Fore.WHITE}[ {Fore.RED}! {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Answer must be {Fore.WHITE}yes {Fore.LIGHTBLACK_EX}or {Fore.WHITE}no")
         exit()
 
 
-print("Generating  codes!")
+print(f"\n{Fore.WHITE}[ {Fore.YELLOW}? {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Generating {Fore.WHITE}{amount}{Fore.LIGHTBLACK_EX} codes!")
 if checker != "yes":
     sleep(1)
 
@@ -62,7 +63,7 @@ try:
     p = open("proxies.txt", encoding="UTF-8")
 except FileNotFoundError:
     p = open("proxies.txt", "w+", encoding="UTF-8")
-    print("No proxies found in proxies.txt!")
+    print(f"{Fore.WHITE}[{Fore.RED} ! {Fore.WHITE}]{Fore.LIGHTBLACK_EX} No proxies found in {Fore.WHITE}proxies.txt!{Fore.WHITE}")
     raise SystemExit
 
 
@@ -75,7 +76,7 @@ for i in rproxy:
 p.close()
 
 if not rproxy:
-    print(f"No proxies found in proxies.txt!")
+    print(f"{Fore.WHITE}[{Fore.RED} ! {Fore.WHITE}]{Fore.LIGHTBLACK_EX} No proxies found in {Fore.WHITE}proxies.txt!{Fore.WHITE}")
     raise SystemExit
 
 if checker != "yes":
@@ -86,10 +87,10 @@ if checker != "yes":
         else:
             code = ''.join([random.choice(string.ascii_letters + string.digits) for i in range(16)])
         if prefix == "yes":
-            print(f"Generated code {code}")
+            print(f"{Fore.WHITE}[ {Fore.GREEN}+ {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Generated code {Fore.WHITE}{code}")
             f.write(f"discord.gift/{code}\n")
         else:
-            print(f"Generated code {code}")
+            print(f"{Fore.WHITE}[ {Fore.GREEN}+ {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Generated code {Fore.WHITE}{code}")
             f.write(f"{code}\n")
 
 else:
@@ -97,10 +98,10 @@ else:
         f = open(f"working-codes.txt","a", encoding="UTF-8")
         try:
             if not rproxy[0]:
-                print("All proxies are invalid!")
+                print(f"{Fore.WHITE}[ {Fore.RED}! {Fore.WHITE}] {Fore.LIGHTBLACK_EX}All proxies are invalid!{Fore.WHITE}")
                 exit()
         except:
-            print(f"All proxies are invalid!")
+            print(f"{Fore.WHITE}[ {Fore.RED}! {Fore.WHITE}] {Fore.LIGHTBLACK_EX}All proxies are invalid!{Fore.WHITE}")
             exit()
         if mult == "yes":
             proxi = rproxy[0]
@@ -117,23 +118,23 @@ else:
         try:
             url = requests.get(f"https://discordapp.com/api/v6/entitlements/gift-codes/{code}", proxies=proxies, timeout=3)
             if url.status_code == 200:
-                print(f"Working Code {code}")
+                print(f"{Fore.WHITE}[ {Fore.GREEN}+ {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Working Code {Fore.WHITE}{code}{Fore.WHITE}")
                 f.write(f"\ndiscord.gift/{code}")
                 f.close()
             elif url.status_code == 404:
                 fulla = fulla - 1
-                print(f"Invalid Code")
+                print(f"{Fore.WHITE}[ {Fore.RED}- {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Invalid Code {Fore.WHITE}{code}")
             elif url.status_code == 429:
                 fulla = fulla - 1
                 if mult == "yes":
-                    print(f"Proxy {proxi} is ratelimited! | Switching proxy")
+                    print(f"{Fore.WHITE}[ {Fore.RED}- {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Proxy {Fore.WHITE}{proxi}{Fore.LIGHTBLACK_EX} is ratelimited! | Switching proxy")
                 else:
-                    print(f"Proxy {proxi} is ratelimited!")
+                    print(f"{Fore.WHITE}[ {Fore.RED}- {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Proxy {Fore.WHITE}{proxi}{Fore.LIGHTBLACK_EX} is ratelimited!")
                 index = rproxy.index(proxi)
                 del rproxy[index]
             else:
                 fulla = fulla - 1
-                print(f"Invalid Error! | Status code {url.status_code}")
+                print(f"{Fore.WHITE}[ {Fore.RED}! {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Invalid Error! | Status code {Fore.WHITE}{url.status_code}")
         except:
             index = rproxy.index(proxi)
             del rproxy[index]
@@ -142,9 +143,9 @@ else:
                 pw.write(i + "\n")
             pw.close()
             fulla = fulla - 1
-            print(f"Failed connecting to proxy {proxi} Removing from list!")
+            print(f"{Fore.WHITE}[ {Fore.RED}- {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Failed connecting to proxy {Fore.WHITE}{proxi}{Fore.LIGHTBLACK_EX} | Removing from list!")
 
 f.close()
-print(f"Successfully generated {fulla} codes!")
+print(f"{Fore.WHITE}[ {Fore.YELLOW}? {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Successfully generated {Fore.WHITE}{fulla} {Fore.LIGHTBLACK_EX}codes!{Fore.WHITE}")
 
 input()
