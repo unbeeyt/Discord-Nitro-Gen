@@ -11,6 +11,6 @@ currently being supported with security updates.
 
 Checked on This Python Version 
 | 3.7.3   | :white_check_mark: |
-
+| 3.8.4   | :white_check_mark: |
 
 you can make an issue when there is security problem and such problems 
