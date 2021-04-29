@@ -8,6 +8,15 @@ from colorama import Fore
 
 os.system("cls")
 
+print (f"{Fore.RED}FOR EDUCATIONAL USE ONLY {Fore.YELLOW}YOU MUST AGREE TO TAKE FULL RESPONSIBILITY FOR ANY DAMAGE CAUSED BY THIS GENERATOR")
+toscheck = input (f"{Fore.WHITE}DO you agree to take full responibility for the damage? ")
+if "yes" in toscheck:
+        pass
+else:
+    print(f"{Fore.WHITE}[ {Fore.RED}! {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Answer must be {Fore.WHITE}yes {Fore.LIGHTBLACK_EX}or {Fore.WHITE}no")
+    exit()
+
+
 amount = int(input(f"\n{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.LIGHTBLACK_EX}How much codes will be generated: {Fore.WHITE}"))
 print(f"\n{Fore.WHITE}[ {Fore.YELLOW}? {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Classic Nitro is 16chars and Boost Nitro is 24chars")
 nitro = input(f"{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Boost codes or Classic codes {Fore.WHITE}(boost or classic){Fore.LIGHTBLACK_EX}: {Fore.WHITE}")
@@ -148,4 +157,5 @@ else:
 f.close()
 print(f"{Fore.WHITE}[ {Fore.YELLOW}? {Fore.WHITE}] {Fore.LIGHTBLACK_EX}Successfully generated {Fore.WHITE}{fulla} {Fore.LIGHTBLACK_EX}codes!{Fore.WHITE}")
 
-input()
+print (f"{Fore.WHITE}[ {Fore.YELLOW}> {Fore.WHITE}] {Fore.WHITE} Thanks {Fore.RED} using {Fore.GREEN} me!")
+exit()
