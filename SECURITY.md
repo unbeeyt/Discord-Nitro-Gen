@@ -18,6 +18,3 @@ Checked on This Python Version
 
 DAMAGE MADE WITH THIS SOFTWARE IS RESPONIBLE TO THE USER
 you can make an issue when there is security problem and such problems 
-| Version | Supported          |
-| ------- | ------------------ |
-| 0.1.x   | :white_check_mark: |
